@@ -4,16 +4,18 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --compilers ts:espower-typescript/guess -r intelli-espower-loader",
-    "test:w": "mocha --compilers ts:espower-typescript/guess -r intelli-espower-loader -w",
+    "test": "mocha --compilers ts:espower-typescript/guess -r intelli-espower-loader && karma start --single-run",
+    "unit:w": "mocha --compilers ts:espower-typescript/guess -r intelli-espower-loader -w",
+    "br:w": "karma start --watch",
     "bundle:w": "watchify .tmp/src/index.js -o dist/bundle.js -v",
     "tsc:w": "tsc -w",
-    "watch": "npm-run-all --parallel bundle:w tsc:w test:w"
+    "watch": "npm-run-all --parallel bundle:w tsc:w unit:w br:w"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.5.8",
+    "angular-mocks": "^1.5.8",
     "browserify": "^13.1.0",
     "espower-typescript": "^5.0.1",
     "espowerify": "^1.0.0",
@@ -23,7 +25,6 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
-    "karma-typescript-preprocessor": "^0.2.1",
     "mocha": "^3.0.1",
     "npm-run-all": "^2.3.0",
     "power-assert": "^1.4.1",
