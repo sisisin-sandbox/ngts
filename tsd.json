@@ -13,6 +13,18 @@
     },
     "node/node.d.ts": {
       "commit": "e65947027120a0dc77723266906e4ce6c28bd725"
+    },
+    "mocha/mocha.d.ts": {
+      "commit": "e65947027120a0dc77723266906e4ce6c28bd725"
+    },
+    "empower/empower.d.ts": {
+      "commit": "e65947027120a0dc77723266906e4ce6c28bd725"
+    },
+    "power-assert/power-assert.d.ts": {
+      "commit": "e65947027120a0dc77723266906e4ce6c28bd725"
+    },
+    "power-assert-formatter/power-assert-formatter.d.ts": {
+      "commit": "e65947027120a0dc77723266906e4ce6c28bd725"
     }
   }
 }
