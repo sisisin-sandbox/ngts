@@ -10,6 +10,7 @@
   <div ng-controller="HelloController as ctrl">
     <div ng-bind="ctrl.hello()"></div>
     <p ng-bind="ctrl.tm"></p>
+    <app-hello-directive hoge="ctrl.hogeStr" />
   </div>
 
   <script src="./dist/bundle.js"></script>

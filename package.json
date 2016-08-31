@@ -25,6 +25,7 @@
     "karma-chrome-launcher": "^1.0.1",
     "karma-mocha": "^1.1.1",
     "karma-mocha-reporter": "^2.1.0",
+    "karma-ng-html2js-preprocessor": "^1.0.0",
     "mocha": "^3.0.1",
     "npm-run-all": "^2.3.0",
     "power-assert": "^1.4.1",

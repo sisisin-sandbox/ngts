@@ -4,12 +4,19 @@ module.exports = function(config) {
     frameworks: ['mocha', 'browserify'],
     files: [
       'dist/bundle.js',
-      'test/karma/**-spec.ts'
+      'test/karma/**-spec.ts',
+      'views/*.html'
     ],
     exclude: [
     ],
     preprocessors: {
-      'test/karma/**-spec.ts': ['browserify']
+      'test/karma/**-spec.ts': ['browserify'],
+      'views/*.html': ['ng-html2js']      
+    },
+    ngHtml2JsPreprocessor: {
+      stripPrefix: 'views',
+      prependPrefix: '/views',
+      moduleName: 'templates'
     },
     browserify:{
       debug: true,
