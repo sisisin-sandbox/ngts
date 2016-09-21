@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>My HTML File</title>
+  <script src="./node_modules/angular/angular.js"></script>
+  <script src="./dist/bundle.js"></script>
+</head>
+
+<body ng-app="app">
+  <div ng-controller="HelloController as ctrl">
+    <div ng-bind="ctrl.hello()"></div>
+    <p ng-bind="ctrl.tm"></p>
+    <app-hello-directive hoge="ctrl.hogeStr" />
+  </div>
+
+</body>
+
+</html>
