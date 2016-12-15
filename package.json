@@ -13,6 +13,8 @@
   "author": "",
   "license": "MIT",
   "devDependencies": {
+    "@types/mocha": "^2.2.33",
+    "@types/power-assert": "^1.4.29",
     "angular": "^1.5.8",
     "angular-mocks": "^1.5.8",
     "json-loader": "^0.5.4",
