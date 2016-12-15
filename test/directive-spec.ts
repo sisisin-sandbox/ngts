@@ -1,14 +1,14 @@
 import assert = require('power-assert');
-const {appHelloDirective} = app;
+import {appHelloDirective, IHogeScope} from '../src/modules/directive';
+import { AppWithBtcCtrl } from '../src/modules/controller';
 
-require('angular-mocks');
 const inject = angular.mock.inject;
 
 describe('appHelloDirective', () => {
   let $compile: ng.ICompileService, $rootScope: ng.IRootScopeService;
   let elm: JQuery;
-  let scope: app.IHogeScope;
-  let sut: app.IHogeScope;
+  let scope: IHogeScope;
+  let sut: IHogeScope;
 
   beforeEach(() => {
     angular.mock.module('app');
@@ -17,11 +17,11 @@ describe('appHelloDirective', () => {
     inject((_$compile_: ng.ICompileService, _$rootScope_: ng.IRootScopeService) => {
       $compile = _$compile_;
       $rootScope = _$rootScope_;
-      scope = <app.IHogeScope>$rootScope.$new();
+      scope = <IHogeScope>$rootScope.$new();
       scope.hoge = 'hoge';
       elm = $compile(`<app-hello-directive hoge="hoge" />`)(scope);
       scope.$digest();
-      sut = <app.IHogeScope>elm.isolateScope();
+      sut = <IHogeScope>elm.isolateScope();
     });
   });
 
@@ -57,7 +57,7 @@ describe('appWithController', () => {
 
     const elm = $compile(`<app-with-btc foo="foo"></app-with-btc>`)(scope);
     scope.$digest();
-    const ctrl = <app.AppWithBtcCtrl>elm.data().$appWithBtcController;
+    const ctrl = <AppWithBtcCtrl>elm.data().$appWithBtcController;
 
     assert(ctrl.foo === 'foovalue');
   });

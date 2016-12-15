@@ -1,29 +1,39 @@
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
     basePath: '',
-    frameworks: ['mocha', 'browserify'],
+    frameworks: ['mocha'],
     files: [
       'node_modules/angular/angular.js',
-      'dist/bundle.js',
+      'node_modules/angular-mocks/angular-mocks.js',
+      'src/index.ts',
       'test/**-spec.ts',
       'views/*.html'
     ],
-    exclude: [
-    ],
+    exclude: [],
     preprocessors: {
-      'test/**-spec.ts': ['browserify'],
-      'views/*.html': ['ng-html2js']      
+      'src/index.ts': ['webpack'],
+      'test/**-spec.ts': ['webpack'],
+      'views/*.html': ['ng-html2js']
+    },
+    webpack: {
+      entry: {},
+      output: {
+        filename: './dist/bundle.js'
+      },
+      resolve: {
+        extensions: ['', '.ts', '.js']
+      },
+      module: {
+        loaders: [
+          { test: /\.ts$/, loaders: ['webpack-espower-loader', 'ng-annotate-loader', 'ts-loader'] },
+          { test: /\.json$/, loader: 'json' }
+        ]
+      }
     },
     ngHtml2JsPreprocessor: {
       stripPrefix: 'views',
       prependPrefix: '/views',
       moduleName: 'templates'
-    },
-    browserify:{
-      debug: true,
-      plugin: ['tsify'],
-      transform: ['espowerify'],
-      extensions: ['.ts', '.js']
     },
     reporters: ['mocha'],
     port: 9876,

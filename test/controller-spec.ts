@@ -1,7 +1,6 @@
 import assert = require('power-assert');
-const {HelloController} = app;
+import { HelloController, AppWithBtcCtrl } from '../src/modules/controller';
 
-require('angular-mocks');
 const inject = angular.mock.inject;
 
 describe('karma', () => {
@@ -16,14 +15,14 @@ describe('karma', () => {
   });
 
   it('set $timeout 1000ms', () => {
-    const sut = $controller<app.HelloController>('HelloController', {
+    const sut = $controller<HelloController>('HelloController', {
       $timeout(cb, time) {
         assert(time === 1000);
       }
     });
   });
   it('increment tm after $timeout fired', () => {
-    const sut = $controller<app.HelloController>('HelloController', {
+    const sut = $controller<HelloController>('HelloController', {
       $timeout(cb, time) {
         cb();
       }
@@ -31,7 +30,7 @@ describe('karma', () => {
     assert(sut.tm === 2);
   });
   it('hello called HelloService.hello()', () => {
-    const sut = $controller<app.HelloController>('HelloController', {
+    const sut = $controller<HelloController>('HelloController', {
       HelloService: {
         hello() { assert.ok; }
       }
@@ -41,14 +40,14 @@ describe('karma', () => {
 });
 
 describe('AppWithBtcCtrl', () => {
-  let sut: app.AppWithBtcCtrl;
+  let sut: AppWithBtcCtrl;
   let scope: ng.IScope;
   beforeEach(() => {
     angular.mock.module('app');
 
     inject(($controller: ng.IControllerService, $rootScope: ng.IRootScopeService) => {
       scope = $rootScope.$new();
-      sut = $controller<app.AppWithBtcCtrl>('AppWithBtcCtrl', { $scope: scope });
+      sut = $controller<AppWithBtcCtrl>('AppWithBtcCtrl', { $scope: scope });
       sut.foo = 'foo';
       scope.$digest();
     });
