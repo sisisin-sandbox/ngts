@@ -4,7 +4,10 @@
         "noImplicitAny": false,
         "sourceMap": false,
         "module": "commonjs",
-        "outDir": ".tmp/"
+        "outDir": ".tmp/",
+        "typeRoots": [
+            "node_modules/@types/"
+        ]
     },
     "exclude": [
         "node_modules"
