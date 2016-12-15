@@ -6,19 +6,17 @@
   "scripts": {
     "test": "karma start --single-run",
     "test:w": "karma start --watch",
-    "tsc:w": "tsc -w",
-    "watch": "npm-run-all --parallel tsc:w test:w"
+    "build": "webpack",
+    "build:w": "webpack -w",
+    "watch": "npm-run-all --parallel test:w build:w"
   },
   "author": "",
   "license": "MIT",
   "devDependencies": {
     "angular": "^1.5.8",
     "angular-mocks": "^1.5.8",
-    "browserify": "^13.1.0",
-    "espowerify": "^1.0.0",
     "json-loader": "^0.5.4",
     "karma": "^1.1.2",
-    "karma-browserify": "^5.1.0",
     "karma-chrome-launcher": "^1.0.1",
     "karma-coverage": "^1.1.1",
     "karma-mocha": "^1.1.1",
@@ -32,9 +30,7 @@
     "power-assert": "^1.4.1",
     "ts-loader": "^1.3.2",
     "tsd": "^0.6.5",
-    "tsify": "^1.0.3",
-    "typescript": "^1.8.10",
-    "watchify": "^3.7.0",
+    "typescript": "^2.1.4",
     "webpack": "^1.14.0",
     "webpack-espower-loader": "^1.0.1"
   }
