@@ -1,0 +1,9 @@
+machine:
+  timezone: Asia/Tokyo
+
+  node:
+    version: 7.2.0
+
+test:
+  post:
+    - bash scripts/comment-coverage.sh
