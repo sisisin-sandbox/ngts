@@ -1,3 +1,5 @@
+const {tempBase} = require('./scripts/coverage-path');
+
 const otherFiles = [
   'node_modules/angular/angular.js',
   'node_modules/angular-mocks/angular-mocks.js',
@@ -46,6 +48,6 @@ module.exports = function (config) {
     browsers: ['Chrome'],
     singleRun: true,
     concurrency: Infinity,
-    coverageReporter: { type: 'json', dir: 'coverage/temp', subdir: '.' }
+    coverageReporter: { type: 'json', dir: tempBase, subdir: '.' }
   });
 }

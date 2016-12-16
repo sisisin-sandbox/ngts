@@ -1,18 +1,18 @@
 const gulp = require('gulp');
 const {exec} = require('child_process');
-const path = require('path');
+const {getTempPath, getJsonPath, getHtmlPath, tempBase} = require('./scripts/coverage-path');
 
+const remapHtml = `remap-istanbul -i ${getTempPath()} -o ${getHtmlPath()} -t html`;
+const remapJson = `remap-istanbul -i ${getTempPath()} -o ${getJsonPath()} -t json`;
+const removeTemp = `rm -rf ${tempBase}`;
 
 gulp.task('coverage', (done) => {
-  const coverageDir = process.env.CIRCLE_ARTIFACTS ?
-    path.resolve(process.env.CIRCLE_ARTIFACTS, 'coverage')
-    : 'coverage/';
-  const remapHtml = `remap-istanbul -i ./coverage/temp/coverage-final.json -o ${path.resolve(coverageDir, 'html')} -t html`;
-  const remapJson = `remap-istanbul -i ./coverage/temp/coverage-final.json -o ${path.resolve(coverageDir, 'json/coverage-final.json')} -t json`;
+  exec(`${remapHtml} && ${remapJson} && ${removeTemp}`, (err, stdout, stderr) => {
+    if (err) {
+      console.error(err);
+      process.exit(1);
+    }
 
-  exec(`${remapHtml} && ${remapJson}`, (err, stdout, stderr) => {
-    if (err) console.log(err);
-    console.log(stdout, stderr);
     done();
   });
 });
