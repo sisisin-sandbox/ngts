@@ -14,3 +14,4 @@ test:
   post:
     - bash scripts/comment-coverage.sh
     - node scripts/put-coverage-summary-json.js
+    - node scripts/put-coverage-summary-json.js package-a
