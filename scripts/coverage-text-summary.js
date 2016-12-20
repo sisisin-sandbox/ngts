@@ -1,5 +1,4 @@
-const {Report, Collector, utils} = require('istanbul');
-const {getJsonPath} = require('./coverage-path');
+const {buildSummary} = require('./coverage-util');
 
 // istanbulのtext-summary.jsをまるっと持ってきた
 function lineForKey(summary, key, watermarks) {
@@ -17,11 +16,7 @@ function lineForKey(summary, key, watermarks) {
 }
 
 function writeReport() {
-  const collector = new Collector();
-  collector.add(require(getJsonPath()));
-  const summaries = collector.files().map(f => utils.summarizeFileCoverage(collector.fileCoverageFor(f)));
-  const finalSummary = utils.mergeSummaryObjects.apply(null, summaries);
-
+  const finalSummary = buildSummary();
   let lines = [];
   lines.push('');
   lines.push('```');
