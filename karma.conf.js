@@ -1,4 +1,4 @@
-const {tempBase} = require('./scripts/coverage-path');
+const {tempBase} = require('./scripts/coverage-util');
 
 const otherFiles = [
   'node_modules/angular/angular.js',

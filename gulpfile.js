@@ -1,6 +1,6 @@
 const gulp = require('gulp');
 const {exec} = require('child_process');
-const {getTempPath, getJsonPath, getHtmlPath, tempBase} = require('./scripts/coverage-path');
+const {getTempPath, getJsonPath, getHtmlPath, tempBase} = require('./scripts/coverage-util');
 
 const remapHtml = `remap-istanbul -i ${getTempPath()} -o ${getHtmlPath()} -t html`;
 const remapJson = `remap-istanbul -i ${getTempPath()} -o ${getJsonPath()} -t json`;
