@@ -13,4 +13,5 @@ import './modules/component';
 import './modules/directive';
 import './modules/service';
 
-angular.bootstrap(document.body, ['app']);
+import './polyfills';
+import './app.module';
