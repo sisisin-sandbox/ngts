@@ -35,6 +35,10 @@ module.exports = function (config) {
         postLoaders: [{ test: /\.js$/, loader: 'istanbul-instrumenter', exclude: [/node_modules/, /-spec\.js$/] }]
       }
     },
+    webpackMiddleware:{
+      stats: 'errors-only',
+      noInfo: true
+    },
     ngHtml2JsPreprocessor: {
       stripPrefix: 'views',
       prependPrefix: '/views',

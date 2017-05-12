@@ -3,8 +3,10 @@
 
 <head>
   <meta charset="utf-8">
+  <base href="/">
   <title>My HTML File</title>
   <script src="./node_modules/angular/angular.js"></script>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
   <script src="./dist/bundle.js"></script>
 </head>
 
@@ -16,6 +18,7 @@
     <app-with-btc foo="ctrl.tm"></app-with-btc>
   </div>
 
+  <div ng-view></div>
 </body>
 
 </html>
