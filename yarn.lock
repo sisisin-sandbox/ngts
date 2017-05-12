@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@angular/core@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/core/-/core-4.1.2.tgz#37b5c040b9dd37003499aea04319d699e3870596"
+
+"@angular/upgrade@^4.1.2":
+  version "4.1.2"
+  resolved "https://registry.yarnpkg.com/@angular/upgrade/-/upgrade-4.1.2.tgz#fa274f6620e9666d05405dc0598f1ca8bb11ffee"
+
 "@types/angular-mocks@1.5.8":
   version "1.5.8"
   resolved "https://registry.yarnpkg.com/@types/angular-mocks/-/angular-mocks-1.5.8.tgz#65502dce968c1ab88dfbadac1ffc525b6fa97922"
