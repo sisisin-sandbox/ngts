@@ -1,4 +1,5 @@
-import {HelloService} from './service';
+import { HelloService } from './service';
+import { BarService } from '../app.module';
 
 export class HelloController {
   public tm = 1;
@@ -17,8 +18,9 @@ export class AppWithBtcCtrl {
   watchFoo = (n: string, o: string) => {
     this.bar = `${n}bar`;
   }
-  constructor($scope: ng.IScope) {
+  constructor($scope: ng.IScope, BarService: BarService) {
     $scope.$watchCollection(() => this.foo, this.watchFoo);
+    BarService.bar();
   }
 }
 angular.module('app').controller('AppWithBtcCtrl', AppWithBtcCtrl);

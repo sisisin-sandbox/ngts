@@ -3,19 +3,22 @@
 
 <head>
   <meta charset="utf-8">
+  <base href="/">
   <title>My HTML File</title>
   <script src="./node_modules/angular/angular.js"></script>
-  <script src="./dist/bundle.js"></script>
+  <script src="./node_modules/angular-route/angular-route.js"></script>
 </head>
 
-<body ng-app="app">
+<body>
   <div ng-controller="HelloController as ctrl">
-    <div ng-bind="ctrl.hello()"></div>
+    <div>{{ctrl.hello()}}</div>
     <p ng-bind="ctrl.tm"></p>
     <app-hello-directive hoge="ctrl.hogeStr"></app-hello-directive>
     <app-with-btc foo="ctrl.tm"></app-with-btc>
   </div>
-
+  <app-ng2-component></app-ng2-component>
+  <div ng-view></div>
+  <script src="./dist/bundle.js"></script>
 </body>
 
 </html>
