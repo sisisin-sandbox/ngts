@@ -11,12 +11,12 @@
 
 <body>
   <div ng-controller="HelloController as ctrl">
-    <div ng-bind="ctrl.hello()"></div>
+    <div>{{ctrl.hello()}}</div>
     <p ng-bind="ctrl.tm"></p>
     <app-hello-directive hoge="ctrl.hogeStr"></app-hello-directive>
     <app-with-btc foo="ctrl.tm"></app-with-btc>
   </div>
-
+  <app-ng2-component></app-ng2-component>
   <div ng-view></div>
   <script src="./dist/bundle.js"></script>
 </body>
